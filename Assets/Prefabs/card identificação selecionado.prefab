@@ -188,7 +188,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: sendo acessorada
+  m_text: 'sendo acessorado
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 998182cdb0ef84a538e6972240ed713d, type: 2}
   m_sharedMaterial: {fileID: -8313226960612061145, guid: 998182cdb0ef84a538e6972240ed713d,
@@ -258,9 +260,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 8.0052185}
   m_textInfo:
     textComponent: {fileID: 450194768418283337}
-    characterCount: 16
+    characterCount: 17
     spriteCount: 0
-    spaceCount: 1
+    spaceCount: 2
     wordCount: 2
     linkCount: 0
     lineCount: 1
