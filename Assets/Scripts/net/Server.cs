@@ -109,7 +109,7 @@ public class Server : MonoBehaviour
         // The client and server can be on different projects, as long as the MyNetworkMessage or the class you are using have the same implementation on both projects
         // The first thing we do is deserialize the message to our custom type
         var objectMessage = netMessage.ReadMessage<MyNetworkMessage>();
-        //Debug.Log("Message received: " + objectMessage.message);
+        Debug.Log("Message received: " + objectMessage.message);
 
         OnNewMessage.Invoke(objectMessage.message);
     }

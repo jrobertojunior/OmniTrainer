@@ -6,14 +6,19 @@ using TMPro;
 
 public class NotificationEvent : UnityEvent<Notification> { }
 
+[System.Serializable]
+public class NotificationAlert : UnityEvent { }
+
+
+
 public class Teacher : MonoBehaviour
 {
-    public TextMeshProUGUI counterText;
-
-    public NotificationEvent OnNewNotification = new NotificationEvent();
+    public NotificationAlert OnNewNotification = new NotificationAlert();
 
     string oldmsg = "";
     string msg = "";
+
+    bool oneError = true;
 
     void Start()
     {
@@ -23,17 +28,19 @@ public class Teacher : MonoBehaviour
     {
         if (msg != oldmsg)
         {
-            counterText.text = msg;
             oldmsg = msg;
 
             print(msg);
 
             string[] tokens = msg.Split(';');
 
-            if (Parser.IsNotification(msg))
+            if (Parser.IsNotification(msg) && oneError == true)
             {
-                Notification not = Parser.CreateNotification(msg);
-                print(not.name);
+                // error msg
+                //Notification not = Parser.CreateNotification(msg);
+                OnNewNotification.Invoke();
+
+                oneError = false;
             }
         }
     }
@@ -43,13 +50,8 @@ public class Teacher : MonoBehaviour
         print("teacher received: " + msg);
     }
 
-    public void UpdateCounterText(string msg)
+    public void ReceivedMessage(string msg)
     {
         this.msg = msg;
-    }
-
-    public void ButtonText()
-    {
-        counterText.text = "some tet";
     }
 }
